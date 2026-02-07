@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Baloo";
+    src: url("../fonts/BalooBhaijaan-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Chillax";
+    src: url("../fonts/Chillax-Variable.ttf") format("truetype");
+}
+
+ @layer base {
+     body {
+         width: 100%;
+         height: 100%;
+         overflow-x: hidden;
+     }
+     p {
+         font-family: "Chillax", sans-serif;
+         font-size: 48px;
+         color: white;
+     }
+     div {
+         font-family: "Baloo", sans-serif;
+         color: white;
+         flex-wrap: wrap;
+     }
+     * {
+         margin: 0;
+         padding: 0;
+     }
+}
+
+@layer components {
+ .bg {
+     background-image: url('/bg.png');
+ }
+}
+/*
+@utility {
+
+}
+
+@utility {
+
+}
+ */
