@@ -23,7 +23,6 @@
      div {
          font-family: "Baloo", sans-serif;
          color: white;
-         flex-wrap: wrap;
      }
      * {
          margin: 0;
