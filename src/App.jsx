@@ -3,15 +3,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 import Bean from "./components/Bean.jsx";
-import {OrbitControls, useGLTF} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 import Model from "./components/Model.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 const App = () => {
+
 
 
     useEffect(() => {
@@ -36,7 +36,6 @@ const App = () => {
                 ease: "power1.in",
             }
         });
-
         tl
             .to(".beanleft", { scale: 1.3 })
             .to(".beanright", { scale: 1.3 }, "<")
@@ -59,14 +58,12 @@ const App = () => {
                 ease: "power1.in",
             }
         });
-
         tl
             .from(".bean2", { x: -500 })
             .from(".bean1", { x: 500 }, "<")
             .from(".letter", { x: -100, stagger: 0.2 })
             .from(".text2", { x: 500 }, "<")
             .from(".text1", { y: 300, scale: 0.5, opacity: 0.1 }, "<")
-
     });
 
 
@@ -90,18 +87,25 @@ const App = () => {
     });
 
 
+
     // RETURN RETURN RETURN RETURN RETURN RETURN RETURN RETURN RETURN RETURN RETURN RETURN
+
 
 
     return (
         <>
+
+
             <div className={"bg w-screen h-screen -z-10 fixed"} />
+
+
             <Navbar />
 
+
             <div className="fixed top-0 left-0 w-screen h-screen z-40">
-                <Canvas
-                    dpr={[1, 1.5]}
-                    camera={{ position: [0, 0, 2.5], fov: 50 }}>
+
+                <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 2.5], fov: 50 }}>
+
                     <ambientLight intensity={0.5} />
 
                     <directionalLight position={[5, 5, 5]} intensity={1} />
@@ -112,12 +116,15 @@ const App = () => {
                     <Model />
 
                 </Canvas>
+
             </div>
 
 
-
             <Bean />
+
+
             <div className={"h-screen w-screen show flex items-center "}>
+
 
                 <div className={"px-5"}>
                     {"COFFEE".split("").map((letter, i) => (
@@ -128,12 +135,12 @@ const App = () => {
                 </div>
 
 
-
                 <div className={"h-screen bean1 w-screen absolute -z-5"}>
                     <img className={"absolute bottom-5 right-20"} src="/bean1.svg" alt=""/>
                     <img className={"absolute top-70 right-50"} src="/bean2.svg" alt=""/>
                     <img className={"absolute top-10 right-20"} src="/bean3.svg" alt=""/>
                 </div>
+
 
                 <div className={"h-screen bean2 w-screen absolute -z-5"}>
                     <img className={"absolute top-10 left-50"} src="/bean4.svg" alt=""/>
@@ -150,7 +157,9 @@ const App = () => {
 
             </div>
 
+
             <div className={"h-screen w-screen show2 flex items-center"}>
+
 
                 <div className={"px-5"}>
                     {"ARABIC".split("").map((letter, i) => (
@@ -160,19 +169,23 @@ const App = () => {
                     ))}
                 </div>
 
+
                 <div className={"h-screen bean3 w-screen absolute -z-5"}>
                     <img className={"absolute top-20 right-50"} src="/bean7.svg" alt=""/>
                     <img className={"absolute bottom-20 right-20"} src="/bean8.svg" alt=""/>
                     <img className={"absolute bottom-5 right-100"} src="/bean9.svg" alt=""/>
                 </div>
 
+
                 <div className={"text-[150px] text3 absolute opacity-30 flex justify-center h-screen w-screen items-center"}>ثقة الكوب</div>
+
 
                 <div className={"h-screen bean4 w-screen absolute -z-5"}>
                     <img className={"absolute top-30 left-100"} src="/bean10.svg" alt=""/>
                     <img className={"absolute bottom-10 left-20"} src="/bean11.svg" alt=""/>
                     <img className={"absolute top-20 left-20"} src="/bean12.svg" alt=""/>
                 </div>
+
 
             </div>
         </>
