@@ -9,6 +9,14 @@
     src: url("../fonts/Chillax-Variable.ttf") format("truetype");
 }
 
+@theme {
+    --breakpoint-xs: 30rem;   /* ~480px */
+    --breakpoint-sm: 40rem;   /* 640px (default) */
+    --breakpoint-md: 48rem;   /* 768px (default) */
+    --breakpoint-lg: 64rem;   /* 1024px (default) */
+    --breakpoint-xl: 80rem;   /* 1280px (default) */
+}
+
  @layer base {
      body {
          width: 100%;
@@ -17,7 +25,6 @@
      }
      p {
          font-family: "Chillax", sans-serif;
-         font-size: 48px;
          color: white;
      }
      div {
@@ -29,7 +36,6 @@
          padding: 0;
      }
 }
-
 @layer components {
  .bg {
      background-image: url('/bg.png');
@@ -44,3 +50,5 @@
 
 }
  */
+
+
