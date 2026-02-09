@@ -10,9 +10,9 @@ const Navbar = () => {
             </div>
 
             <div className={"flex justify-evenly w-[50%]"}>
-                <img className={"w-7 hover:scale-125 duration-200 max-sm:w-5"} src="/house.svg" alt=""/>
-                <img className={"w-7 hover:scale-125 duration-200 max-sm:w-5"} src="/phone.svg" alt=""/>
-                <img className={"w-7 hover:scale-125 duration-200 max-sm:w-5"} src="/table.svg" alt=""/>
+                <img className={"w-7 hover:scale-125 duration-200 max-sm:w-5 cursor-pointer"} src="/house.svg" alt=""/>
+                <img className={"w-7 hover:scale-125 duration-200 max-sm:w-5 cursor-pointer"} src="/phone.svg" alt=""/>
+                <img className={"w-7 hover:scale-125 duration-200 max-sm:w-5 cursor-pointer"} src="/table.svg" alt=""/>
             </div>
 
         </div>

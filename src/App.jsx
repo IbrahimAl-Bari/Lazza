@@ -6,6 +6,7 @@ import Bean from "./components/Bean.jsx";
 import {Canvas} from "@react-three/fiber";
 import {useEffect} from "react";
 import Model from "./components/Model.jsx";
+import {Carousel} from "./components/Carousel.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,9 +96,15 @@ const App = () => {
         });
         tl
             .from(".text4", {scale: 0})
+
             .from(".bean6", { x: -600 })
             .from(".bean5", { x: 500 }, "<")
-            .from(".letter3", { x: -100, stagger: 0.2 })
+
+            .from(".letter3", { x: -100, stagger: 0.2 } , "<")
+
+            .from(".button", {y:100, stagger: 0.2})
+            .from(".weight", {x:-250})
+            .from(".buy", {y:100, stagger: 0.2})
     });
 
 
@@ -113,7 +120,6 @@ const App = () => {
             <div className="fixed top-0 left-0 w-screen h-screen z-40 pointer-events-none">
 
                 <Canvas
-                    className="pointer-events-auto"
                     dpr={[1, 2]}
                     camera={{position: [0, 0, 2.5], fov: window.innerWidth < 768 ? 60 : 50}}>
 
@@ -186,7 +192,7 @@ const App = () => {
                 </div>
 
 
-                <div className="text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text3 absolute opacity-30 flex justify-center h-screen w-screen items-center px-4 text-center">
+                <div className="text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text3 absolute opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
                     ثقة الكوب
                 </div>
 
@@ -199,9 +205,9 @@ const App = () => {
 
             </div>
 
-            <div className={"h-screen w-screen show3 flex items-center"}>
+            <div className={"h-screen w-screen show3 flex items-center z-60"}>
 
-                <div className="text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text4 absolute mb-80 opacity-30 flex justify-center h-screen w-screen items-center px-4 text-center">
+                <div className="text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text4 absolute mb-90 opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
                   !  إكتشف
                 </div>
 
@@ -227,8 +233,7 @@ const App = () => {
                     <img className="absolute bottom-10 left-32 w-14 sm:bottom-20 sm:left-70 sm:w-20 md:w-28" src="/bean6.svg" alt=""/>
                 </div>
 
-                <div></div>
-
+                <Carousel />
 
             </div>
         </>
