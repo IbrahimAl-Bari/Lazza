@@ -37,8 +37,11 @@ const App = () => {
         tl
             .to(".beanleft", { scale: 1.3 })
             .to(".beanright", { scale: 1.3 }, "<")
+
             .to(".beanleft", { x: -100, scale: 2, rotation: -30 })
             .to(".beanright", { x: 100, scale: 2, rotation: 30 }, "<")
+
+
             .to(".beanleft", { x: -1100, scale: 10 })
             .to(".beanright", { x: 1000, scale: 10 }, "<");
     });
@@ -102,7 +105,7 @@ const App = () => {
 
             .from(".letter3", { x: -100, stagger: 0.2 } , "<")
 
-            .from(".button", {y:100, stagger: 0.2})
+            .from(".button", {y:200, stagger: 0.2})
             .from(".weight", {y: 80, opacity: 0, scale: 0.9, duration: 0.6,}, "-=0.3")
             .from(".buy", {y:100, stagger: 0.2})
     });
@@ -164,10 +167,10 @@ const App = () => {
 
 
                 <div className="h-screen w-screen absolute left-2 sm:left-10 -z-3 flex flex-col justify-end pb-5 sm:pb-10">
-                    <div className="w-full sm:w-100 max-xs:w-100 text1 text-4xl sm:text-7xl md:text-6xl lg:text-[100px] text-center sm:text-right opacity-50">
+                    <div className="w-full sm:w-100 max-xs:w-80 text1 text-4xl max-sm:text-5xl md:text-6xl lg:text-[100px] text-center sm:text-right opacity-50">
                         قهوة على مزاجك
                     </div>
-                    <div className="text-base sm:text-xl md:text-2xl lg:text-[24px] text2 opacity-50 text-center sm:text-right mt-2 sm:mt-0 sm:absolute sm:bottom-5 sm:right-10 md:right-20">
+                    <div className="text-base sm:text-xl md:text-2xl lg:text-[24px] text2 opacity-50 pr-10 text-end sm:text-right mt-2 sm:mt-0 sm:absolute sm:bottom-5 sm:right-10 md:right-20">
                         ...جودة تُحس
                     </div>
                 </div>
@@ -207,7 +210,7 @@ const App = () => {
 
             <div className={"h-screen w-screen show3 flex items-center z-60"}>
 
-                <div className="text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text4 absolute mb-90 opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
+                <div className="text-8xl sm:text-8xl max-xs:text-7xl md:text-9xl lg:text-[150px] text4 absolute mb-90 opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
                   !  إكتشف
                 </div>
 

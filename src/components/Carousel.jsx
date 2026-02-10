@@ -68,28 +68,30 @@ export function Carousel() {
     return (
         <div className="flex flex-col items-center justify-center w-full h-screen z-60">
 
-            <div className="flex items-center justify-center h-screen w-screen z-80 absolute top-60">
 
-                <button className={'mr-50 button absolute cursor-pointer'} onClick={goPrev}>
+            <div className="h-screen w-screen flex absolute justify-center items-end mb-20 max-md:mb-40 max-xs:mb-60 max-xs:mr-10 z-80">
+
+                <button className={'w-10 max-md:w-8 button cursor-pointer'} onClick={goPrev}>
                     <img className={"hover:scale-110 duration-200"} src="/arrow.svg" alt="prev" />
                 </button>
 
-                <h3 className="text-2xl button">{products[centerIndex].name}</h3>
+                <h3 className="text-2xl button px-5">{products[centerIndex].name}</h3>
 
-                <button className={"ml-50 absolute button cursor-pointer"} onClick={goNext}>
+                <button className={"w-10 max-md:w-8 button cursor-pointer"} onClick={goNext}>
                     <img src="/arrow.svg" alt="next" className="rotate-180 hover:scale-110 duration-200" />
                 </button>
 
             </div>
 
 
-            <div ref={containerRef} className="w-full h-screen flex items-center absolute top-10">
+
+            <div ref={containerRef} className="w-full h-screen flex items-center absolute top-10 max-xs:top-0">
 
                 <div ref={carouselRef} className="flex gap-10 z-100">
                     {products.map((product, index) => (
                         <div
                             key={product.id}
-                            className={`z-100 box shrink-0 w-[30vw] max-w-62.5 aspect-square square rounded-4xl transition-transform duration-500 flex items-center justify-center  ${
+                            className={`z-100 box shrink-0 min-w-40 w-[30vw] max-w-60 aspect-square square rounded-4xl transition-transform duration-500 flex items-center justify-center  ${
                                 index === centerIndex ? "scale-125 rounded-[3rem] shadow-2xl" : "scale-90"
                             }`}
                         >
@@ -100,20 +102,20 @@ export function Carousel() {
 
             </div>
 
-            <div className={'w-screen h-screen absolute flex items-end'}>
+            <div className={'w-screen h-screen absolute flex max-xs:justify-center items-end'}>
 
-                <div className={'w-100 m-5 z-90 weight flex items-center gap-10 '}>
-                    <div onClick={togglesm} className={"cursor-pointer z-60 w-15 h-15 circle flex justify-center items-center text-sm hover:border-4  hover:scale-110 duration-200"}>250 G</div>
-                    <div onClick={togglebg} className={"cursor-pointer z-60 w-20 h-20 circle flex justify-center items-center text-xl hover:border-4  hover:scale-110 duration-200"}>1 Kg</div>
+                <div className={'w-100  m-5 z-90 weight flex items-center gap-10 max-sm:gap-5 '}>
+                    <div onClick={togglesm} className={"cursor-pointer z-60 w-15 h-15 max-md:w-10 max-md:h-10 max-md:text-xs circle flex justify-center items-center text-sm hover:border-4  hover:scale-110 duration-200"}>250 G</div>
+                    <div onClick={togglebg} className={"cursor-pointer z-60 w-20 h-20 max-md:w-15 max-md:h-15 max-md:text-md circle flex justify-center items-center text-xl hover:border-4  hover:scale-110 duration-200"}>1 Kg</div>
                 </div>
 
 
                 <div className={'w-screen m-5 flex items-center justify-end'}>
-                    <div className={"w-15 h-15 square buy flex justify-evenly mr-5 items-center text-xl"}>
+                    <div className={"w-15 h-15 square max-md:h-10 max-md:w-15 max-xs:w-10 max-xs:text-sm buy flex justify-evenly mr-5 items-center text-xl"}>
                         {kg ? (products[centerIndex].bgprice) : (products[centerIndex].smprice)}
                         <img src="/ryal.svg" alt=""/>
                     </div>
-                    <div className={"w-30 h-15 square buy flex justify-center mr-25 items-center text-3xl z-90"}><button onClick={handleRedirect} className={"cursor-pointer z-90 hover:scale-125 duration-200"}>Order</button></div>
+                    <div className={"w-30 h-15 max-md:h-10 max-md:w-20 max-md:text-xl square buy flex justify-center mr-20 items-center text-3xl z-90"}><button onClick={handleRedirect} className={"cursor-pointer z-90 hover:scale-125 duration-200"}>Order</button></div>
                 </div>
 
             </div>
