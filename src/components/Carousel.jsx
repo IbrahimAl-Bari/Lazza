@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import {useGSAP} from "@gsap/react";
 
 export function Carousel() {
     const products = [
@@ -59,28 +58,32 @@ export function Carousel() {
         });
     }, [centerIndex]);
 
+    const handleRedirect = () => {
+        window.open('https://lazza.sa', '_blank', 'noopener,noreferrer');
+    };
+
+
+
 
     return (
         <div className="flex flex-col items-center justify-center w-full h-screen z-60">
 
-            <div className="flex items-center justify-center h-screen w-screen z-50 absolute top-60">
+            <div className="flex items-center justify-center h-screen w-screen z-80 absolute top-60">
 
                 <button className={'mr-50 button absolute cursor-pointer'} onClick={goPrev}>
-                    <img src="/arrow.svg" alt="prev" />
+                    <img className={"hover:scale-110 duration-200"} src="/arrow.svg" alt="prev" />
                 </button>
 
                 <h3 className="text-2xl button">{products[centerIndex].name}</h3>
 
                 <button className={"ml-50 absolute button cursor-pointer"} onClick={goNext}>
-                    <img src="/arrow.svg" alt="next" className="rotate-180" />
+                    <img src="/arrow.svg" alt="next" className="rotate-180 hover:scale-110 duration-200" />
                 </button>
 
             </div>
 
 
-            <div
-                ref={containerRef}
-                className="w-full h-screen flex items-center absolute top-10">
+            <div ref={containerRef} className="w-full h-screen flex items-center absolute top-10">
 
                 <div ref={carouselRef} className="flex gap-10 z-100">
                     {products.map((product, index) => (
@@ -94,10 +97,12 @@ export function Carousel() {
                         </div>
                     ))}
                 </div>
+
             </div>
 
             <div className={'w-screen h-screen absolute flex items-end'}>
-                <div className={'w-full m-5 weight flex items-center gap-10 '}>
+
+                <div className={'w-100 m-5 z-90 weight flex items-center gap-10 '}>
                     <div onClick={togglesm} className={"cursor-pointer z-60 w-15 h-15 circle flex justify-center items-center text-sm hover:border-4  hover:scale-110 duration-200"}>250 G</div>
                     <div onClick={togglebg} className={"cursor-pointer z-60 w-20 h-20 circle flex justify-center items-center text-xl hover:border-4  hover:scale-110 duration-200"}>1 Kg</div>
                 </div>
@@ -108,8 +113,9 @@ export function Carousel() {
                         {kg ? (products[centerIndex].bgprice) : (products[centerIndex].smprice)}
                         <img src="/ryal.svg" alt=""/>
                     </div>
-                    <div className={"w-30 h-15 square buy flex justify-center mr-25 items-center text-3xl"}>Order</div>
+                    <div className={"w-30 h-15 square buy flex justify-center mr-25 items-center text-3xl z-90"}><button onClick={handleRedirect} className={"cursor-pointer z-90 hover:scale-125 duration-200"}>Order</button></div>
                 </div>
+
             </div>
 
 

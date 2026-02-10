@@ -103,7 +103,7 @@ const App = () => {
             .from(".letter3", { x: -100, stagger: 0.2 } , "<")
 
             .from(".button", {y:100, stagger: 0.2})
-            .from(".weight", {x:-250})
+            .from(".weight", {y: 80, opacity: 0, scale: 0.9, duration: 0.6,}, "-=0.3")
             .from(".buy", {y:100, stagger: 0.2})
     });
 
