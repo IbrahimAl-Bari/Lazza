@@ -123,7 +123,7 @@ const App = () => {
 
 
             {loading && (
-                <div className="fixed top-0 left-0 w-screen h-screen bg z-100 flex items-center justify-center">
+                <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden bg z-100 flex items-center justify-center">
                    <div className={"loader"}></div>
                 </div>
             )}
@@ -149,7 +149,7 @@ const App = () => {
             <Bean />
 
 
-            <div className="h-screen w-screen show flex items-center">
+            <div className="h-screen w-full show overflow-hidden flex items-center">
 
                 <div className={"h-10 w-10 fake absolute hidden -z-10"}></div>
 
@@ -177,10 +177,10 @@ const App = () => {
 
 
                 <div className="h-screen w-screen absolute left-2 sm:left-10 -z-3 flex flex-col justify-end pb-5 sm:pb-10">
-                    <div className="w-full sm:w-100 max-xs:w-80 text1 text-4xl max-sm:text-5xl md:text-6xl lg:text-[100px] text-center sm:text-right opacity-50">
+                    <div dir="rtl" className=" w-full sm:w-100 max-xs:w-80 text1 text-4xl max-sm:text-5xl md:text-6xl lg:text-[100px] text-center sm:text-right opacity-50">
                         قهوة على مزاجك
                     </div>
-                    <div className="text-base sm:text-xl md:text-2xl lg:text-[24px] text2 opacity-50 pr-10 text-end sm:text-right mt-2 sm:mt-0 sm:absolute sm:bottom-5 sm:right-10 md:right-20">
+                    <div dir="rtl" className=" text-base sm:text-xl md:text-2xl lg:text-[24px] text2 opacity-50 pr-10 text-end sm:text-right mt-2 sm:mt-0 sm:absolute sm:bottom-5 sm:right-10 md:right-20">
                         ...جودة تُحس
                     </div>
                 </div>
@@ -188,7 +188,7 @@ const App = () => {
             </div>
 
 
-            <div className="h-screen w-screen show2 flex items-center">
+            <div className="h-screen w-full overflow-hidden show2 flex items-center">
 
                 <div className={"h-10 w-10 fake2 absolute hidden -z-10"}></div>
 
@@ -208,7 +208,7 @@ const App = () => {
                 </div>
 
 
-                <div className="text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text3 absolute opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
+                <div dir="rtl" className="leading-relaxed tracking-normal text-8xl sm:text-8xl md:text-9xl lg:text-[150px] text3 absolute opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
                     ثقة الكوب
                 </div>
 
@@ -222,9 +222,9 @@ const App = () => {
             </div>
 
 
-            <div className={"h-screen w-screen show3 flex items-center z-60"}>
+            <div className={"h-screen w-full show3 overflow-hidden flex items-center z-60"}>
 
-                <div className="text-8xl sm:text-8xl max-xs:text-7xl md:text-9xl lg:text-[150px] text4 absolute mb-90 opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
+                <div className="leading-relaxed tracking-normal text-8xl sm:text-8xl max-xs:text-7xl md:text-9xl lg:text-[150px] text4 absolute mb-90 opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
                   !  إكتشف
                 </div>
 

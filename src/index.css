@@ -23,6 +23,9 @@
          height: 100%;
          overflow-x: hidden;
      }
+     html {
+         overflow-x: hidden;
+     }
      p {
          font-family: "Chillax", sans-serif;
          color: white;

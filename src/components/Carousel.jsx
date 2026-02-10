@@ -64,7 +64,7 @@ export function Carousel() {
 
 
     return (
-        <div className="flex flex-col items-center justify-center w-full h-screen z-60">
+        <div className="flex flex-col items-center overflow-hidden justify-center w-full h-screen z-60">
 
 
             <div className="h-screen w-screen flex absolute justify-center items-end mb-20 max-md:mb-40 max-xs:mb-60 max-xs:mr-10 z-80">
@@ -73,7 +73,7 @@ export function Carousel() {
                     <img className={"hover:scale-110 duration-200"} src="/arrow.svg" alt="prev" />
                 </button>
 
-                <h3 className="text-2xl button px-5">{products[centerIndex].name}</h3>
+                <h3 dir="rtl" className="text-2xl button px-5">{products[centerIndex].name}</h3>
 
                 <button className={"w-10 max-md:w-8 button cursor-pointer"} onClick={goNext}>
                     <img src="/arrow.svg" alt="next" className="rotate-180 hover:scale-110 duration-200" />
