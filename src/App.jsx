@@ -4,20 +4,26 @@ import gsap from "gsap";
 import { useGSAP } from '@gsap/react';
 import Bean from "./components/Bean.jsx";
 import {Canvas} from "@react-three/fiber";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Model from "./components/Model.jsx";
 import {Carousel} from "./components/Carousel.jsx";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
 
+    const [loading, setLoading] = useState(true);
+    const [centerIndex, setCenterIndex] = useState(0);
 
     useEffect(() => {
         window.history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
     }, []);
 
+    const handleCanvasLoaded = () => {
+        setLoading(false);
+    };
 
 
     // GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP GSAP
@@ -33,15 +39,11 @@ const App = () => {
                 ease: "power1.in",
             }
         });
-
         tl
             .to(".beanleft", { scale: 1.3 })
             .to(".beanright", { scale: 1.3 }, "<")
-
             .to(".beanleft", { x: -100, scale: 2, rotation: -30 })
             .to(".beanright", { x: 100, scale: 2, rotation: 30 }, "<")
-
-
             .to(".beanleft", { x: -1100, scale: 10 })
             .to(".beanright", { x: 1000, scale: 10 }, "<");
     });
@@ -51,19 +53,19 @@ const App = () => {
             scrollTrigger: {
                 trigger: ".show",
                 start: "top top",
-                end: "+=2000",
+                end: "+=2500",
                 scrub: 2,
                 pin: true,
                 ease: "power1.in",
             }
         });
-
         tl
             .from(".bean2", { x: -500 })
             .from(".bean1", { x: 500 }, "<")
             .from(".letter", { x: -100, stagger: 0.2 })
             .from(".text2", { x: 500 }, "<")
             .from(".text1", { y: 300, scale: 0.5, opacity: 0.1 }, "<")
+            .from(".fake", { x: 500})
     });
 
     useGSAP(() => {
@@ -83,6 +85,7 @@ const App = () => {
             .from(".bean3", { x: 500 }, "<")
             .from(".letter2", { x: -100, stagger: 0.2 })
             .from(".text3", { scale: 0 }, "<")
+            .from(".fake2", { x: 500})
     });
 
     useGSAP(() => {
@@ -90,7 +93,7 @@ const App = () => {
             scrollTrigger: {
                 trigger: ".show3",
                 start: "top top",
-                end: "+=2000",
+                end: "+=3500",
                 scrub: 2,
                 pin: true,
                 pinSpacing: true,
@@ -99,12 +102,9 @@ const App = () => {
         });
         tl
             .from(".text4", {scale: 0})
-
             .from(".bean6", { x: -600 })
             .from(".bean5", { x: 500 }, "<")
-
             .from(".letter3", { x: -100, stagger: 0.2 } , "<")
-
             .from(".button", {y:200, stagger: 0.2})
             .from(".weight", {y: 80, opacity: 0, scale: 0.9, duration: 0.6,}, "-=0.3")
             .from(".buy", {y:100, stagger: 0.2})
@@ -116,15 +116,24 @@ const App = () => {
 
     return (
         <>
-            <div className="bg w-screen h-screen -z-10 fixed" />
+            <div className="bg w-screen h-screen overflow-hidden -z-10 fixed" />
+
+
             <Navbar />
 
 
-            <div className="fixed top-0 left-0 w-screen h-screen z-40 pointer-events-none">
+            {loading && (
+                <div className="fixed top-0 left-0 w-screen h-screen bg z-100 flex items-center justify-center">
+                   <div className={"loader"}></div>
+                </div>
+            )}
 
+            <div className="fixed top-0 left-0 w-screen h-screen z-40 pointer-events-none">
                 <Canvas
                     dpr={[1, 2]}
-                    camera={{position: [0, 0, 2.5], fov: window.innerWidth < 768 ? 60 : 50}}>
+                    camera={{position: [0, 0, 2.5], fov: window.innerWidth < 768 ? 60 : 50}}
+                    onCreated={handleCanvasLoaded}>
+
 
                     <ambientLight intensity={0.5} />
                     <directionalLight position={[5, 5, 5]} intensity={1} />
@@ -133,15 +142,16 @@ const App = () => {
                     <directionalLight position={[-5, -10, 3]} intensity={0.5} />
 
                     <Model />
-
                 </Canvas>
             </div>
+
 
             <Bean />
 
 
             <div className="h-screen w-screen show flex items-center">
 
+                <div className={"h-10 w-10 fake absolute hidden -z-10"}></div>
 
                 <div className="px-5">
                     {"COFFEE".split("").map((letter, i) => (
@@ -174,10 +184,13 @@ const App = () => {
                         ...جودة تُحس
                     </div>
                 </div>
+
             </div>
+
 
             <div className="h-screen w-screen show2 flex items-center">
 
+                <div className={"h-10 w-10 fake2 absolute hidden -z-10"}></div>
 
                 <div className="px-5">
                     {"ARABIC".split("").map((letter, i) => (
@@ -208,12 +221,12 @@ const App = () => {
 
             </div>
 
+
             <div className={"h-screen w-screen show3 flex items-center z-60"}>
 
                 <div className="text-8xl sm:text-8xl max-xs:text-7xl md:text-9xl lg:text-[150px] text4 absolute mb-90 opacity-50 flex justify-center h-screen w-screen items-center px-4 text-center">
                   !  إكتشف
                 </div>
-
 
                 <div className="px-5">
                     {"COFFEE".split("").map((letter, i) => (
@@ -236,7 +249,7 @@ const App = () => {
                     <img className="absolute bottom-10 left-32 w-14 sm:bottom-20 sm:left-70 sm:w-20 md:w-28" src="/bean6.svg" alt=""/>
                 </div>
 
-                <Carousel />
+                <Carousel centerIndex={centerIndex} setCenterIndex={setCenterIndex} />
 
             </div>
         </>

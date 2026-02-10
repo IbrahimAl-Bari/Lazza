@@ -59,7 +59,7 @@ function Model() {
                     scrollTrigger: {
                         trigger: ".show3",
                         start: "top bottom",
-                        end: "+=500",
+                        end: "+=100",
                         scrub: 2,
                     },
                     ease: "power1.in"

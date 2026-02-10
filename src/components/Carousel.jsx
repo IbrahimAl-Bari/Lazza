@@ -63,8 +63,6 @@ export function Carousel() {
     };
 
 
-
-
     return (
         <div className="flex flex-col items-center justify-center w-full h-screen z-60">
 
