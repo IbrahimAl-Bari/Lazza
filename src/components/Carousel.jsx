@@ -25,9 +25,21 @@ export function Carousel() {
     const [kg , setkg] = useState(false);
     const togglesm = () => {
         setkg(false)
+
+        const rece = document.querySelector(".bgc")
+        rece.style.border = "1px solid white";
+
+        const rece2 = document.querySelector(".smc")
+        rece2.style.border = "3px solid white";
     }
     const togglebg = () => {
         setkg(true)
+
+        const rece = document.querySelector(".bgc")
+        rece.style.border = "3px solid white";
+
+        const rece2 = document.querySelector(".smc")
+        rece2.style.border = "1px solid white";
     }
 
 
@@ -69,13 +81,13 @@ export function Carousel() {
 
             <div className="h-screen w-screen flex absolute justify-center items-end mb-20 max-md:mb-40 max-xs:mb-60 max-xs:mr-10 z-80">
 
-                <button className={'w-10 max-md:w-8 button cursor-pointer'} onClick={goPrev}>
+                <button className={'w-10 max-md:w-8 button cursor-pointer relative right-20'} onClick={goPrev}>
                     <img className={"hover:scale-110 duration-200"} src="/arrow.svg" alt="prev" />
                 </button>
 
-                <h3 dir="rtl" className="text-2xl button px-5">{products[centerIndex].name}</h3>
+                <h3 dir="rtl" className="text-2xl button px-5 absolute">{products[centerIndex].name}</h3>
 
-                <button className={"w-10 max-md:w-8 button cursor-pointer"} onClick={goNext}>
+                <button className={"w-10 max-md:w-8 button cursor-pointer relative left-20"} onClick={goNext}>
                     <img src="/arrow.svg" alt="next" className="rotate-180 hover:scale-110 duration-200" />
                 </button>
 
@@ -103,8 +115,8 @@ export function Carousel() {
             <div className={'w-screen h-screen absolute flex max-xs:justify-center items-end'}>
 
                 <div className={'w-100  m-5 z-90 weight flex items-center gap-10 max-sm:gap-5 '}>
-                    <div onClick={togglesm} className={"cursor-pointer z-60 w-15 h-15 max-md:w-10 max-md:h-10 max-md:text-xs circle flex justify-center items-center text-sm hover:border-4  hover:scale-110 duration-200"}>250 G</div>
-                    <div onClick={togglebg} className={"cursor-pointer z-60 w-20 h-20 max-md:w-15 max-md:h-15 max-md:text-md circle flex justify-center items-center text-xl hover:border-4  hover:scale-110 duration-200"}>1 Kg</div>
+                    <div onClick={togglesm} className={"cursor-pointer smc z-60 w-15 h-15 max-md:w-10 max-md:h-10 max-md:text-xs circle flex justify-center items-center text-sm hover:border-4  hover:scale-110 duration-200"}>250 G</div>
+                    <div onClick={togglebg} className={"cursor-pointer bgc z-60 w-20 h-20 max-md:w-15 max-md:h-15 max-md:text-md circle flex justify-center items-center text-xl hover:border-4  hover:scale-110 duration-200"}>1 Kg</div>
                 </div>
 
 
@@ -113,7 +125,7 @@ export function Carousel() {
                         {kg ? (products[centerIndex].bgprice) : (products[centerIndex].smprice)}
                         <img src="/ryal.svg" alt=""/>
                     </div>
-                    <div className={"w-30 h-15 max-md:h-10 max-md:w-20 max-md:text-xl square buy flex justify-center mr-20 items-center text-3xl z-90"}><button onClick={handleRedirect} className={"cursor-pointer z-90 hover:scale-125 duration-200"}>Order</button></div>
+                    <div className={"w-30 h-15 max-md:h-10 max-md:w-20 max-md:text-xl square buy flex justify-center mr-20 items-center text-3xl z-90"}><button onClick={handleRedirect} className={"w-full h-full cursor-pointer z-89 hover:scale-125 duration-200"}>Order</button></div>
                 </div>
 
             </div>

@@ -32,13 +32,14 @@ const Navbar = () => {
 
     return (
         <div className={"fixed top-0 w-screen flex justify-center h-10 z-100"}>
-        <div className={"absolute top-3 flex justify-evenly rounded-4xl w-125 max-sm:w-80 h-10 bg-[#EE4C25]"}>
+        <div className={"absolute top-3 flex justify-evenly rounded-4xl w-125 max-sm:w-80 h-10 "}>
+            <div className={'w-full h-full absolute -z-1 nav rounded-4xl'}></div>
 
-            <div className={"flex justify-center w-[50%] max-sm:w-30"}>
-                <img src="/logo.svg" alt=""/>
+            <div className={"flex justify-center items-center w-[50%] max-sm:w-30"}>
+                <img className={"w-31.25"} src="/logo.svg" alt=""/>
             </div>
 
-            <div className={"flex justify-evenly w-[50%]"}>
+            <div className={"flex justify-evenly items-center w-[50%]"}>
                 <img onClick={scrollToTop}className={"w-7 hover:scale-125 duration-200 max-sm:w-5 cursor-pointer"} src="/house.svg" alt=""/>
                 <img onClick={handleRedirect} className={"w-7 hover:scale-125 duration-200 max-sm:w-5 cursor-pointer"} src="/phone.svg" alt=""/>
                 <img  onClick={() => scrollToSection('show3')} className={"w-7 hover:scale-125 duration-200 max-sm:w-5 cursor-pointer"} src="/table.svg" alt=""/>

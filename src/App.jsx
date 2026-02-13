@@ -128,7 +128,7 @@ const App = () => {
                 </div>
             )}
 
-            <div className="fixed top-0 left-0 w-screen h-screen z-40 pointer-events-none">
+            <div className="fixed top-0 left-0 w-screen h-screen z-10 pointer-events-none">
                 <Canvas
                     dpr={[1, 2]}
                     camera={{position: [0, 0, 2.5], fov: window.innerWidth < 768 ? 60 : 50}}
