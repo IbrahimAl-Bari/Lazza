@@ -18,13 +18,22 @@
 }
 
  @layer base {
-     body {
+     /* ===== MOBILE SCROLL FIX ===== */
+     html, body {
          width: 100%;
-         height: 100%;
-         overflow-x: hidden;
+         max-width: 100%;
+         overflow-x: hidden; /* prevent horizontal scroll only */
      }
-     html {
-         overflow-x: hidden;
+
+     @media (max-width: 1024px) {
+         body {
+             overflow-y: auto !important;
+             position: relative !important;
+             height: auto !important;
+         }
+     }
+     Canvas {
+         touch-action: auto;
      }
      p {
          font-family: "Chillax", sans-serif;
@@ -106,4 +115,47 @@
 }
  */
 
+/* ============================= */
+/* GLOBAL SAFE RESPONSIVE SYSTEM */
+/* ============================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* prevent horizontal scroll only */
+    -webkit-text-size-adjust: 100%;
+}
+
+img, video, canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 1024px) {
+    body {
+        overflow-y: auto !important;
+        position: relative !important;
+        height: auto !important;
+    }
+}
+section, .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
 
